@@ -1,0 +1,56 @@
+****** ajustes de zlevaes ******
+
+ /name A /size 683x730
+
+ /name B /size 683x730 /position 683,0
+
+**************************************
+
+****** variables de castigos-premios ******
+
+// Castigo
+T = 10;
+R = 8;
+P = 2;
+S = 1;
+
+
+****** texto box bienvenida ******
+
+La policía arresta a dos sospechosos. No hay pruebas suficientes para condenarlos y, tras haberlos separado, los visita a cada uno y les ofrece el mismo trato. Si uno confiesa y su cómplice no, el cómplice será condenado a la pena total, diez años, y el primero será  condenado un año. Si uno calla y el cómplice confiesa, el primero recibirá esa pena y será el cómplice quien reciba un año de prisión. Si ambos confiesan, ambos serán condenados a ocho años. Si ambos lo niegan, todo lo que podrán hacer será encerrarlos durante dos años por un cargo menor.
+
+****** item en stage Decisión ******
+
+¿Cuál es su decisión?
+
+Decision
+
+!radio: 1 = "Confesar"; 0 = "No confesar";
+
+
+****** programa en tabla subjects ******
+
+
+decisionRival = find(same(Group) & not(same(Subject)), Decision);
+
+condena = if (Decision == 1, if (decisionRival == 1, R, S), if (decisionRival == 1, T, P));
+
+
+****** items en stage Resultados ******
+
+Su decisión:
+
+Decision
+
+!text: 1 = "Confesar"; 0 ="No Confesar";
+
+
+
+Años de condena:
+
+condena
+
+1
+
+
+
