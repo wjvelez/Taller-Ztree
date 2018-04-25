@@ -1,0 +1,41 @@
+**** variables iniciales ****
+
+FactorEficiencia = 1.6;
+Fondo = 20;
+
+
+**** programa stage instrucciones ****
+
+Participate = if (Period == 1, 1, 0);
+
+
+**** instrucciones ****
+
+{\rtf \fs18 {\ul\fs28\b\qc Instrucciones\par }
+\par \par
+Ud será asignado a un grupo con otros 3 participantes.\par
+Su ganancia final será el acumulado de sus ganancias en cada perido multiplicado por un factor de conversión de 0.04 \par
+}
+
+**** programa stage resultados ****
+
+
+ContribucionGrupal = sum ( same( Group ), Contribucion);
+N = count(  same( Group ) );
+
+Profit = Fondo - Contribucion + FactorEficiencia * ContribucionGrupal/N;
+
+
+
+**** programa stage final ****
+
+Participate = if (Period == 8, 1, 0);
+
+
+**** configuraciones para los zleaves ****
+
+ /name A /language es /size 800x430
+ /name B /language es /size 800x430 /position 800,0
+ /name C /language es /size 800x430 /position 0,430
+ /name D /language es /size 800x430 /position 800,430
+

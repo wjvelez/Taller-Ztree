@@ -1,0 +1,86 @@
+**** texto introducciones ****
+
+{\rtf \fs18 {\ul\fs28\b\qc Instrucciones\par }
+\par
+\par
+Ud debe elegir en \b 5 preguntas\b0 que lotería elegir. \par
+Para calcular el premio, se sortea aleatoriamente una de estas 5 preguntas y se juega la lotería con dicha probabilidad \par
+}
+
+*************************
+
+**** label loteria A ****
+
+
+1/10 de $2.00, 9/10 de $1.60
+
+2/10 de $2.00, 8/10 de $1.60
+
+
+
+**** label loteria B ****
+
+1/10 de $3.85, 9/10 de $0.10
+
+2/10 de $3.85, 8/10 de $0.10
+
+
+
+
+**** layout para radio button en tabla - columna Decision ****
+
+!radio: 1="A"; 3="I"; 2="B";
+
+
+
+**** codigo - programa en Etapa Resultados ****
+
+max = 10;
+
+dec = round(random()*(max - min) + min, 1);
+
+array Decisiones [10];
+Decisiones[1] = dec1;
+Decisiones[2] = dec2;
+Decisiones[3] = dec3;
+Decisiones[4] = dec4;
+Decisiones[5] = dec5;
+Decisiones[6] = dec6;
+Decisiones[7] = dec7;
+Decisiones[8] = dec8;
+Decisiones[9] = dec9;
+Decisiones[10] = dec10;
+
+decision_ganadora = Decisiones[dec];
+
+if (decision_ganadora ==3)
+{
+decision_ganadora = round(random()*(1) + 1, 1);
+}
+
+sorteo = round(random()*(max - min) + min, 1);
+
+if (decision_ganadora == 1)
+{
+// Si la decision fue A
+if (sorteo<= dec){
+// premio mayor A
+premio = 2.00;
+}else{
+premio = 1.60;
+}
+}else
+{
+// Si la decision fue B
+if (sorteo<= dec){
+// premio mayor B
+premio = 3.85;
+}else{
+premio = 0.10;
+}
+}
+Profit = premio;
+
+**** layout item decision ganadora ****
+
+!text: 1="A"; 2 ="B";
