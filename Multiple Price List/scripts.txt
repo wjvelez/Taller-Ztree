@@ -34,6 +34,7 @@ Para calcular el premio, se sortea aleatoriamente una de estas 5 preguntas y se 
 
 
 **** codigo - programa en Etapa Resultados ****
+min = 1;
 
 max = 10;
 
